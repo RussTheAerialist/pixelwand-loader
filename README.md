@@ -9,11 +9,11 @@ pattern displayed on the pixelwand.
 The protocol is simple:
 
 ```
-  client&gt; xo
-  wand&gt; OKv1.0
-  wand&gt; D25
-  client&gt; W100
-  client&gt; [pixel data 25*100*3 bytes]
+  client> xo
+  wand> OKv1.0
+  wand> D25
+  client> W100
+  client> [pixel data 25*100*3 bytes]
 ```
 
 Current Protocol Version is 1.0
