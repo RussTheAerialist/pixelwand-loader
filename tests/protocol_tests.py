@@ -21,3 +21,17 @@ class ProtocolTests(TestCase):
         uut.reset()
         self.assertAlmostEqual(uut.version, 1.0)
         self.assertEqual(uut.pixels, 25)
+
+    def test_width_set(self):
+        mock = h.MockSerial(
+            [
+                "W25"
+            ],
+            [
+                "OK"
+            ]
+        )
+
+        uut = WandProtocol(mock)
+        uut.open()
+        uut.width(25)

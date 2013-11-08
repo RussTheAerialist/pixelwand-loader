@@ -28,6 +28,10 @@ class WandProtocol(object):
         response = self._wait_response(b"D{i:pixels}")
         self._pixel_count = response.pixels
 
+    def width(self, w):
+        self._write(b"W{0}".format(w))
+        self._wait_response(b"OK")
+
     def _wait_response(self, bytes):
         e = Expression(bytes)
         data = self._readline()
