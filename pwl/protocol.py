@@ -32,6 +32,9 @@ class WandProtocol(object):
         self._write(b"W{0}".format(w))
         self._wait_response(b"OK")
 
+    def send_batch(self, bytes):
+        return self._write(bytes, with_newline=False)
+
     def _wait_response(self, bytes):
         e = Expression(bytes)
         data = self._readline()
@@ -50,7 +53,7 @@ class WandProtocol(object):
                 found = True
                 retval.extend(self._buffer)
                 retval.extend(tmp[:idx])
-                self._buffer = tmp[idx+1:]
+                self._buffer = bytearray(tmp[idx+1:])
             else:
                 self._buffer.extend(tmp)
 
@@ -65,11 +68,11 @@ class WandProtocol(object):
         return self._pixel_count
 
 
-    def _write(self, bytes):
+    def _write(self, bytes, with_newline=True):
         """ Writes a message followed by a new line character """
         tmp = bytearray(bytes)
-        logging.debug(bytes)
-        tmp.append(b'\n')
-        logging.debug("Wrote {0} bytes".format(
-            self._serial.write(bytes)
-        ))
+        if with_newline:
+            tmp.append(b'\n')
+        retval = self._serial.write(tmp)
+        logging.debug("Wrote {0} bytes".format(retval))
+        return retval
