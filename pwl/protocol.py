@@ -1,5 +1,7 @@
 import logging
 
+from .expression import Expression
+
 BAUDRATE=9600
 TIMEOUT=60
 
@@ -26,6 +28,29 @@ class WandProtocol(object):
         response = self._wait_response(b"D{i:pixels}")
         self._pixel_count = response.pixels
 
+    def _wait_response(self, bytes):
+        e = Expression(bytes)
+        data = self._readline()
+        if not e(data):
+            # TODO: Figure out what to do if we are invalid
+            return None
+        return e
+
+    def _readline(self):
+        found = False
+        retval = bytearray()
+        while not found:
+            tmp = self._serial.read(100)
+            idx = tmp.find(b'\n')
+            if idx >= 0:
+                found = True
+                retval.extend(self._buffer)
+                retval.extend(tmp[:idx])
+                self._buffer = tmp[idx+1:]
+            else:
+                self._buffer.extend(tmp)
+
+        return retval
 
     @property
     def version(self):

@@ -11,14 +11,13 @@ class MockSerial(object):
     def open(self, *args, **kargs):
         self._open_called = True
 
-    def readInto(self, bytes):
-        assert self._open_called, "readInto called before open"
+    def read(self, length):
+        assert self._open_called, "read called before open"
 
-        output = self._outputs.pop(0)  # Take the first item
-        for i in range(len(output)):
-            bytes[i] = output[i]
+        output = bytearray(self._outputs.pop(0))  # Take the first item
+        output.extend(b'\n')
 
-        return len(output)
+        return output
 
     def write(self, bytes):
         assert self._open_called, "write called before open"
