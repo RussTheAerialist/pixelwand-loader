@@ -1,31 +1,22 @@
 import logging
 
-class ProtocolError(Exception): pass
+from .protocol import WandProtocol
 
 class Wand(object):
     def __init__(self, serial):
+        self._protocol = WandProtocol(serial)
         self._number_pixels = -1
         self._width = -1
 
     def start_upload(self):
-        # self.serial.open()
-        self._write(b"xo")
-        bytes = self._read()
+        self._open()
 
-        if bytes[:2] != b"OK":
-            raise ProtocolError("Wand Not Responding")
-        if bytes[2] != b"v":
-            raise ProtocolError("Wand did not provide protocol version")
-
-        version = float(bytes[3:])
-        if version < 1.0:
-            raise ProtocolError("Incompatible version of wand: {0}".format(version))
+        self._protocol.reset()
+        version = self._protocol.version
         logging.info("Wand Version {0} connected".format(version))
 
-        bytes = self._read()
-        if bytes[0] != b"D":
-            raise ProtocolError("Next Response should be D## for pixel count")
-        self._number_pixels = int(bytes[1:])
+
+        self._number_pixels = response.pixels
         logging.info("{0} pixels present".format(self._number_pixels))
 
     def number_pixels(self):
@@ -35,8 +26,25 @@ class Wand(object):
         self._width = width
         self._write(b"W{0}".format(width))
 
+    def send_bytes(self, bytes):
+        while self.send_batch(bytes, self._number_pixels) > 0: pass
+
+    def send_batch(self, gen, num):
+        try:
+            arr = bytearray()
+            for i in range(num):
+                arr.extend(gen.next())
+            self._write(arr)
+            return 1
+        except StopIteration:
+            return 0
+
+    def _open(self):
+        self._protocol.open()
+
 class MockWand(Wand):
     def _generate_responses(self):
+        yield b"RESET"
         yield b"OKv1.0"
         yield b"D25"
 
@@ -51,9 +59,7 @@ class MockWand(Wand):
         pass
 
     def _write(self, bytes):
-        pass
-
-    def send_bytes(self, bytes):
+        logging.debug(bytes)
         pass
 
     def _read(self):

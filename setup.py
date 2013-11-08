@@ -1,4 +1,4 @@
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='pixelwand-loader',
@@ -8,5 +8,14 @@ setup(
     license='MIT LICENSE',
     author='Russell Hay',
     author_email='me@russellhay.com',
-    description='An Image Loader for the PixelWand'
+    description='An Image Loader for the PixelWand',
+    requires={
+        'Pillow': '*',
+        'pyserial': '*',
+    },
+    entry_points={
+        'console_scripts':
+            ['pwl = pwl.__main__:main']
+    },
+    test_suite='tests'
 )

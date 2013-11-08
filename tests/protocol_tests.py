@@ -1,0 +1,23 @@
+from unittest import TestCase
+import _helpers as h
+
+from pwl.protocol import WandProtocol
+
+class ProtocolTests(TestCase):
+    def test_reset(self):
+        mock = h.MockSerial(
+            [
+                'RT',
+                'xo'
+             ],
+            [
+                'RESET',
+                'OKv1.0',
+                'D25'
+            ]
+        )
+        uut = WandProtocol(mock)
+        uut.open()
+        uut.reset()
+        self.assertAlmostEqual(uut.version, 1.0)
+        self.assertEqual(uut.pixels, 25)
