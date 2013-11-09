@@ -1,5 +1,7 @@
 import logging
 
+import serial
+
 from .expression import Expression
 
 BAUDRATE=9600
@@ -9,18 +11,22 @@ class ProtocolError(Exception): pass
 class UnsupportedProtocolVersionError(ProtocolError): pass
 
 class WandProtocol(object):
-    def __init__(self, serial):
-        self._serial = serial
+    def __init__(self, s):
+        self._serial = serial.Serial()
+        self._serial.port = s
         self._protocol_version = -1.0
         self._pixel_count = -1
         self._buffer = bytearray()
 
     def open(self):
-        self._serial.open(baudrate=BAUDRATE, timeout=TIMEOUT, writeTimeout=TIMEOUT)
+        self._serial.baudrate=BAUDRATE
+        self._serial.timeout=TIMEOUT
+        self._serial.writeTimeout=TIMEOUT
+        self._serial.open()
 
     def reset(self):
-        self._write(b"RT")
-        self._wait_response(b"RESET")
+        #self._write(b"RT")
+        #self._wait_response(b"RESET")
         self._write(b"xo")
         response = self._wait_response(b"OKv{f:version}")
         self._protocol_version = response.version
@@ -38,16 +44,19 @@ class WandProtocol(object):
     def _wait_response(self, bytes):
         e = Expression(bytes)
         data = self._readline()
+        logging.debug("Line:{0}".format(data))
         if not e(data):
             # TODO: Figure out what to do if we are invalid
             return None
         return e
 
     def _readline(self):
+        logging.debug("Starting Readline with: {0}".format(self._buffer))
         found = False
         retval = bytearray()
         while not found:
-            tmp = self._serial.read(100)
+            tmp = self._serial.read(1)
+            logging.debug("read:'{0}'".format(tmp))
             idx = tmp.find(b'\n')
             if idx >= 0:
                 found = True
@@ -75,4 +84,5 @@ class WandProtocol(object):
             tmp.append(b'\n')
         retval = self._serial.write(tmp)
         logging.debug("Wrote {0} bytes".format(retval))
+        self._serial.flush()
         return retval

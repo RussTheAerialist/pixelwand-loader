@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a68a5d7f-b10f-4500-b935-2be7be0f1269" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/_helpers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pwl/protocol.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/protocol_tests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pwl/__main__.py" afterPath="$PROJECT_DIR$/pwl/__main__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pwl/loader.py" afterPath="$PROJECT_DIR$/pwl/loader.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pwl/wand.py" afterPath="$PROJECT_DIR$/pwl/wand.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pwl/protocol.py" afterPath="$PROJECT_DIR$/pwl/protocol.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="pixelwand-loader.iws" />
@@ -44,7 +38,16 @@
       <file leaf-file-name="wand.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pwl/wand.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+            <state line="16" column="0" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="protocol.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pwl/protocol.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="37" selection-start="1079" selection-end="1079" vertical-scroll-proportion="-0.41207814" vertical-offset="847" max-vertical-offset="1410">
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
@@ -52,28 +55,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="protocol.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pwl/protocol.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="22" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="765">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_helpers.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/_helpers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="32" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
+            <state line="10" column="32" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="525">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="protocol_tests.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="protocol_tests.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/protocol_tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="20" selection-start="335" selection-end="335" vertical-scroll-proportion="0.40106952" vertical-offset="0" max-vertical-offset="561">
+            <state line="37" column="0" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="645">
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -84,10 +78,8 @@
       <file leaf-file-name="loader.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pwl/loader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="27" selection-start="714" selection-end="714" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-              <folding>
-                <element signature="e#0#14#0" expanded="true" />
-              </folding>
+            <state line="27" column="27" selection-start="714" selection-end="714" vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="615">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -95,7 +87,7 @@
       <file leaf-file-name="__main__.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pwl/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="0" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="570">
+            <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
               <folding />
             </state>
           </provider>
@@ -119,13 +111,13 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/pwl/__main__.py" />
         <option value="$PROJECT_DIR$/pwl/loader.py" />
         <option value="$PROJECT_DIR$/pwl/wand.py" />
         <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/tests/_helpers.py" />
-        <option value="$PROJECT_DIR$/pwl/protocol.py" />
         <option value="$PROJECT_DIR$/tests/protocol_tests.py" />
+        <option value="$PROJECT_DIR$/pwl/__main__.py" />
+        <option value="$PROJECT_DIR$/pwl/protocol.py" />
       </list>
     </option>
   </component>
@@ -235,8 +227,8 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -328,6 +320,9 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -349,9 +344,6 @@
       <option name="PUREUNITTEST" value="true" />
       <option name="PARAMS" value="" />
       <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -431,7 +423,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24918832" sideWeight="0.670446" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25324675" sideWeight="0.670446" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32955405" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -468,18 +460,14 @@
     <entry file="file://$PROJECT_DIR$/pwl/wand.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="8" selection-start="1805" selection-end="1805" vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="1170">
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pwl/loader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="23" selection-start="655" selection-end="655" vertical-scroll-proportion="0.0" vertical-offset="345" max-vertical-offset="615">
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -495,9 +483,9 @@
         <state line="60" column="0" selection-start="1967" selection-end="1967" vertical-scroll-proportion="0.97788125" vertical-offset="0" max-vertical-offset="32520" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pwl/__main__.py">
+    <entry file="file://$PROJECT_DIR$/tests/_helpers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="0" selection-start="898" selection-end="898" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+        <state line="10" column="32" selection-start="263" selection-end="263" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="525">
           <folding />
         </state>
       </provider>
@@ -505,17 +493,15 @@
     <entry file="file://$PROJECT_DIR$/pwl/loader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="27" selection-start="714" selection-end="714" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pwl/wand.py">
+    <entry file="file://$PROJECT_DIR$/tests/protocol_tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+        <state line="37" column="0" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0" vertical-offset="82" max-vertical-offset="645">
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -527,25 +513,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/pwl/wand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="398" selection-end="398" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pwl/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pwl/protocol.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="22" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0" vertical-offset="189" max-vertical-offset="765">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/_helpers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="32" selection-start="299" selection-end="299" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="525">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/protocol_tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="20" selection-start="335" selection-end="335" vertical-scroll-proportion="0.40106952" vertical-offset="0" max-vertical-offset="561">
+        <state line="41" column="37" selection-start="1079" selection-end="1079" vertical-scroll-proportion="-0.41207814" vertical-offset="847" max-vertical-offset="1410">
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
