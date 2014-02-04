@@ -1,4 +1,5 @@
 import logging
+import time
 
 import serial
 
@@ -11,7 +12,8 @@ class ProtocolError(Exception): pass
 class UnsupportedProtocolVersionError(ProtocolError): pass
 
 class WandProtocol(object):
-    def __init__(self, s):
+    def __init__(self, s, full_reset):
+        self._full_reset = full_reset
         self._serial = serial.Serial()
         self._serial.port = s
         self._protocol_version = -1.0
@@ -23,11 +25,14 @@ class WandProtocol(object):
         self._serial.timeout=TIMEOUT
         self._serial.writeTimeout=TIMEOUT
         self._serial.open()
+        self._serial.flushOutput()
+        self._serial.flushInput()
 
     def reset(self):
-        #self._write(b"RT")
-        #self._wait_response(b"RESET")
-        self._write(b"xo")
+        if self._full_reset:
+            self._write(b"RT")
+            self._wait_response(b"RST")
+        logging.debug(self._write(b"xo"))
         response = self._wait_response(b"OKv{f:version}")
         self._protocol_version = response.version
 
@@ -42,6 +47,7 @@ class WandProtocol(object):
         return self._write(bytes, with_newline=False)
 
     def _wait_response(self, bytes):
+        logging.debug("Waiting for: {0}".format(bytes))
         e = Expression(bytes)
         data = self._readline()
         logging.debug("Line:{0}".format(data))
@@ -55,16 +61,22 @@ class WandProtocol(object):
         found = False
         retval = bytearray()
         while not found:
-            tmp = self._serial.read(1)
-            logging.debug("read:'{0}'".format(tmp))
-            idx = tmp.find(b'\n')
-            if idx >= 0:
-                found = True
-                retval.extend(self._buffer)
-                retval.extend(tmp[:idx])
-                self._buffer = bytearray(tmp[idx+1:])
+            waiting_chars = self._serial.inWaiting()
+            logging.debug("{0} waiting".format(waiting_chars))
+            if waiting_chars > 0:
+                tmp = self._serial.read(1)
+                logging.debug("read:'{0}'".format(tmp))
+                logging.debug("buffer = {0}".format(self._buffer))
+                idx = tmp.find(b'\n')
+                if idx >= 0:
+                    found = True
+                    retval.extend(self._buffer)
+                    retval.extend(tmp[:idx])
+                    self._buffer = bytearray(tmp[idx+1:])
+                else:
+                    self._buffer.extend(tmp)
             else:
-                self._buffer.extend(tmp)
+                time.sleep(0.1)
 
         return retval
 
@@ -85,4 +97,5 @@ class WandProtocol(object):
         retval = self._serial.write(tmp)
         logging.debug("Wrote {0} bytes".format(retval))
         self._serial.flush()
+        time.sleep(0.1)  # http://stackoverflow.com/questions/7266558/pyserial-buffer-wont-flush
         return retval

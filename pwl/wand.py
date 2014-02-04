@@ -1,15 +1,19 @@
 import logging
+import time
 
 from .protocol import WandProtocol
 
 class Wand(object):
-    def __init__(self, serial):
-        self._protocol = WandProtocol(serial)
+    def __init__(self, serial, do_full_reset=False, slow_start=False):
+        self._protocol = WandProtocol(serial, do_full_reset)
         self._number_pixels = -1
         self._width = -1
+        self._slow_start = slow_start
 
     def start_upload(self):
         self._open()
+        if self._slow_start:
+            time.sleep(2)
 
         self._protocol.reset()
         version = self._protocol.version
@@ -44,10 +48,10 @@ class Wand(object):
 
 class MockWand(Wand):
     def _generate_responses(self):
-        yield b"RESET"
+        yield b"RST"
         yield b"OKv1.0"
         yield b"D25"
-	yield b"OK"
+        yield b"OK"
 
     class MockSerial(object):
         def __init__(self, parent): self._parent = parent

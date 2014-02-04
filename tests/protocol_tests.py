@@ -11,7 +11,7 @@ class ProtocolTests(TestCase):
                 'xo'
              ],
             [
-                'RESET',
+                'RST',
                 'OKv1.0',
                 'D25'
             ]
